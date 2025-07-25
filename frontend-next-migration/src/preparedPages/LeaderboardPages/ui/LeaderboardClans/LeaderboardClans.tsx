@@ -1,36 +1,26 @@
 'use client';
 import { SectionLeaderboard } from '@/widgets/SectionLeaderboard';
 import { LeaderboardItem } from '@/entities/Leaderboard/types/leaderboard';
-import { useGetLeaderboardQuery } from '@/entities/Clan';
+import { useGetTopClansQuery } from '@/shared/api/leaderboardApi';
 import { useClientTranslation } from '@/shared/i18n';
 
 const LeaderboardClans = () => {
-    const { t } = useClientTranslation('leaderboard');
-    const pointsLeaderboard = useGetLeaderboardQuery();
-    const activityLeaderboard = useGetLeaderboardQuery();
+  const { t } = useClientTranslation('leaderboard');
+  const { data, isLoading, error } = useGetTopClansQuery();
 
-    return (
-        <SectionLeaderboard
-            leaderboard1={
-                pointsLeaderboard.data?.data.Clan
-                    ? {
-                          title: t('wins'),
-                          leaders: pointsLeaderboard.data.data.Clan as LeaderboardItem[],
-                          path: '/clans',
-                      }
-                    : undefined
+  return (
+    <SectionLeaderboard
+      leaderboard1={
+        data?.data.Clan
+          ? {
+              title: t('wins'),
+              leaders: data.data.Clan as LeaderboardItem[],
+              path: '/clans',
             }
-            leaderboard2={
-                activityLeaderboard.data?.data.Clan
-                    ? {
-                          title: t('activity'),
-                          leaders: activityLeaderboard.data.data.Clan as LeaderboardItem[],
-                          path: '/clans',
-                      }
-                    : undefined
-            }
-        />
-    );
+          : undefined
+      }
+    />
+  );
 };
 
 export default LeaderboardClans;
