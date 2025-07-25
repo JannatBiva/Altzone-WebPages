@@ -27,7 +27,7 @@ const ClanMainPageLayout: React.FC<LayoutProps> = ({ children }) => {
             { elementText: t('browse-clans'), link: { path: `/${lng}/clans`, isExternal: false } },
             {
                 elementText: t('leaderboard-title'),
-                link: { path: `/${lng}/clans/leaderboard`, isExternal: false },
+                link: { path: `/${lng}/leaderboard`, isExternal: false }, // updated
             },
             {
                 elementText: t('my_clan'),
@@ -45,7 +45,7 @@ const ClanMainPageLayout: React.FC<LayoutProps> = ({ children }) => {
             { elementText: t('browse-clans'), link: { path: `/${lng}/clans`, isExternal: false } },
             {
                 elementText: t('leaderboard-title'),
-                link: { path: `/${lng}/clans/leaderboard`, isExternal: false },
+                link: { path: `/${lng}/leaderboard`, isExternal: false }, // updated
             },
             {
                 elementText: t('my_clan'),
