@@ -3,11 +3,11 @@
     background-color: unset;
 }
 .Content {
-    margin-right:60px;
-    @media(min-width: calc(breakpoint(xxl) + 116px)) {
-        margin-right:unset;
-    }
-    @media(max-width: breakpoint(xl)) {
-        margin-right:unset;
-    }
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  @media (max-width: 768px) {
+    padding: 0 16px; // Optional: keeps content readable on small screens
+  }
 }
